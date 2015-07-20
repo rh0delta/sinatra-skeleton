@@ -4,11 +4,17 @@
   Author: <%= @song.author %>
 </p>
 
-<p>
-  <% regex = /youtube.com.*(?:\/|v=)([^&$]+)/ %>
-    <% youtube_id = @song.url.match(regex)[1] %>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen></iframe>
-</p>
+<div class="container">
+  <p>
+    <% unless @song.url.nil? %>
+      <% regex = /youtube.com.*(?:\/|v=)([^&$]+)/ %>
+      <% youtube_id = @song.url.match(regex)[1] %>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen></iframe>
+    <% else %>
+      <%= @song.url %>
+    <% end %>
+  </p>
+</div>
 
 <hr/>
-<a href="/songs">Back to Tracklist</a>
+<a href="/">Back to Tracklist</a>

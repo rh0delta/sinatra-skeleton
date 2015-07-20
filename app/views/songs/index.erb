@@ -1,15 +1,16 @@
 <h2>All Tracks</h2>
 <hr>
-<% @songs.each do |song| %>
-  <div class="song">
-    <h3><a href="/songs/<%= song.id %>"><%= song.title %></a></h3>    
-    <p>
-      By: <%= song.author %>
-    </p>
-    <p>
-      <%= song.url %>
-    </p>
+<div class="container-fluid"> 
+  <div class = "row">
+    <% @songs.each do |song| %>
+      <div class="col-sm-3 col-md-3">
+        <h3><a href="/songs/<%= song.id %>"><%= song.title %></a></h3>    
+        <p>
+          By: <%= song.author %>
+        </p>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 <hr>
 <a href="/songs/tracks">Add more tracks here!</a>
