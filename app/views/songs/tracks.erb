@@ -1,0 +1,35 @@
+<h2>Add a Track</h2>
+
+<hr/>
+
+<% if @song && @song.errors.any? %>
+  <div>
+    <strong>Some issues with your message, please fix them:</strong>
+    <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form method='post' action='/songs'>
+  <div>
+    <label>Author:</label>
+    <input type="text" name="author">
+  </div>
+  <br/>
+  <div>
+    <label>Track Tile:</label>
+    <input type="text" name="title">
+  </div>
+  <br/>
+  <div>
+    <label>URL(youtube or soundcloud):</label>
+    <input type="text" name="url">
+  </div>
+  <br/>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
