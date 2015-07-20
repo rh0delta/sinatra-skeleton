@@ -5,7 +5,9 @@
 </p>
 
 <p>
-  <%= @song.url  %>
+  <% regex = /youtube.com.*(?:\/|v=)([^&$]+)/ %>
+    <% youtube_id = @song.url.match(regex)[1] %>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<%=youtube_id%>" frameborder="0" allowfullscreen></iframe>
 </p>
 
 <hr/>
